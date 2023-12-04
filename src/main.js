@@ -20,7 +20,7 @@ let config = {
 let game = new Phaser.Game(config)
 
 let { width, height } = game.config
-let keySpace, keyLeft, keyRight
+let keySpace, keyLeft, keyRight, keyR
 let speed = 100
 let bounds = Math.round(width*(1/5))+1
 let levelWidth,levelHeight

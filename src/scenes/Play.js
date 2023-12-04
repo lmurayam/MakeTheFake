@@ -17,6 +17,8 @@ class Play extends Phaser.Scene{
         keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);  
+        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);  
+
 
         this.border = this.add.sprite(0, 0,'border').setOrigin(0,0)
         this.border.setScrollFactor(0)
@@ -80,6 +82,9 @@ class Play extends Phaser.Scene{
                 this.previousHeathen = this.newHeathen
             }
             this.newHeathen.update()
+        }
+        if(keyR.isDown){
+            this.scene.start('menuScene');
         }
     }
 }
