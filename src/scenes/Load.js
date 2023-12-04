@@ -17,6 +17,16 @@ class Load extends Phaser.Scene{
             loadingBar.destroy();
         });
         this.load.path = './assets/';
+        this.load.image('background','background.png')
+        this.load.image('crosshair','crosshair.png')
+        this.load.image('border','border.png')
+        this.load.image('title','title.png')
+
+        this.load.spritesheet('gun','gun.png', {
+            frameWidth: 64,
+            frameHeight: 53
+        })
+
 
     }
     create(){
