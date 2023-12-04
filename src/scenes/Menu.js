@@ -5,7 +5,7 @@ class Menu extends Phaser.Scene{
     create(){
         console.log("In Menu")
         this.title = this.add.image(0, 0,'title').setOrigin(0,0)
-        this.scene.start('playScene');
+        this.sound.play('sfx_title')
 
         keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }

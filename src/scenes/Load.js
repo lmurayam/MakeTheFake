@@ -22,9 +22,16 @@ class Load extends Phaser.Scene{
         this.load.image('border','border.png')
         this.load.image('title','title.png')
 
+        this.load.audio('sfx_title', ['title.mp3']);
+        this.load.audio('sfx_blast', ['blast.mp3']);
+
         this.load.spritesheet('gun','gun.png', {
             frameWidth: 64,
             frameHeight: 53
+        })
+        this.load.spritesheet('heathen','heathen.png', {
+            frameWidth: 24,
+            frameHeight: 52
         })
 
 
