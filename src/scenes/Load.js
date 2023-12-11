@@ -29,6 +29,10 @@ class Load extends Phaser.Scene{
             frameWidth: 64,
             frameHeight: 53
         })
+        this.load.spritesheet('bible','bible.png', {
+            frameWidth: 15,
+            frameHeight: 11
+        })
         this.load.spritesheet('heathen','heathen.png', {
             frameWidth: 24,
             frameHeight: 52

@@ -1,3 +1,15 @@
+
+/*
+components:
+Camera
+Animation Manager
+Timer
+Tween
+Particle effects
+Text Objects
+Physics
+*/
+
 let config = {
     parent: 'gameCanvas',
     type: Phaser.AUTO,
@@ -21,7 +33,7 @@ let game = new Phaser.Game(config)
 
 let { width, height } = game.config
 let keySpace, keyLeft, keyRight, keyR
-let speed = 100
+let speed = 1
 let bounds = Math.round(width*(1/5))+1
 let levelWidth,levelHeight
 
