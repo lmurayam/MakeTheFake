@@ -6,7 +6,7 @@ Animation Manager
 Timer
 Tween
 Particle effects
-Text Objects
+Bitmap Text Objects
 Physics
 */
 
@@ -26,7 +26,7 @@ let config = {
             }
         }
     },
-    scene: [Load, Menu, Play],
+    scene: [Load, Menu, Control, Play],
 }
 
 let game = new Phaser.Game(config)

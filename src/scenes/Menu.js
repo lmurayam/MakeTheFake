@@ -7,11 +7,30 @@ class Menu extends Phaser.Scene{
         this.title = this.add.image(0, 0,'title').setOrigin(0,0)
         this.sound.play('sfx_title')
 
+        this.billyText = this.add.bitmapText(width/2,height/6,'upheaval','BILLY GRAHAM\'S',14).setOrigin(0.5).setLetterSpacing(3)
+
+        this.bibleText = this.add.bitmapText(width/2,height/3,'upheavalColor','BIBLE',28).setOrigin(0.5).setLetterSpacing(2)
+        this.blasterText = this.add.bitmapText(width/2,height/2,'upheavalColor','BLASTERS',28).setOrigin(0.5).setLetterSpacing(2)
+
+        this.add.bitmapText(width/2,height*2/3,'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
+
+        this.tween = this.tweens.add({
+            targets: [this.billyText,this.bibleText,this.blasterText,this.spaceText],
+            alpha: { from: 1, to: 0 },
+            duration: 1000,
+            completeDelay: 100,
+            repeat: 0,
+            paused: true,
+            onComplete: () => {
+                this.scene.start('controlScene')
+            }
+        });
+
         keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
     update(){
         if (Phaser.Input.Keyboard.JustDown(keySpace)){
-            this.scene.start('playScene');
+            this.tween.paused = false
         }
     }
 }

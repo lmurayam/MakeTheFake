@@ -3,7 +3,7 @@ class Crosshair extends Phaser.Physics.Arcade.Sprite{
         super(scene,x,y,texture);
         scene.add.existing(this);
         this.isShooting = false
-        this.gun = this.scene.add.sprite(width/2,height-height/7,'gun',3).setOrigin(0.5)
+        this.gun = this.scene.add.sprite(width/2,height-height/7,'gun',0).setOrigin(0.5)
         this.gunBarrel = {x:0,y:0}
         this.gun.setScrollFactor(0)
         this.gun.setDepth(11)
@@ -66,7 +66,7 @@ class Crosshair extends Phaser.Physics.Arcade.Sprite{
         if(keySpace.isDown&&this.isShooting==false){
             this.isShooting=true
             this.scene.sound.play('sfx_blast')
-            let bullet = new Bullet(this.scene,this.gunBarrel.x,this.gunBarrel.y,'bible',this.calculateCrosshairAngle()).setOrigin(0.5)
+            let bullet = new Bullet(this.scene,this.gunBarrel.x,this.gunBarrel.y,'bible',this.calculateCrosshairAngle())
             this.bullets.add(bullet)
         }
         if(keySpace.isUp){

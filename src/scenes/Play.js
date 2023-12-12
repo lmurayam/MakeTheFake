@@ -36,7 +36,7 @@ class Play extends Phaser.Scene{
         if (!this.gameOver){
             this.crosshair.update()
             if (this.previousHeathen==null||this.previousHeathen.isConverted==true){
-                this.newHeathen = new Heathen(this, Phaser.Math.Between(bounds,levelWidth-bounds), height*11/25,'heathen').setOrigin(0.5) 
+                this.newHeathen = new Heathen(this, Phaser.Math.Between(bounds,levelWidth-bounds), height*11/25,'heathen').setOrigin(0.5)
                 this.newHeathen.setDepth(1)
                 this.previousHeathen = this.newHeathen
             }

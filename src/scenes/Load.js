@@ -21,17 +21,17 @@ class Load extends Phaser.Scene{
         this.load.image('crosshair','crosshair.png')
         this.load.image('border','border.png')
         this.load.image('title','title.png')
+        this.load.image('bible','bible.png')
 
         this.load.audio('sfx_title', ['title.mp3']);
         this.load.audio('sfx_blast', ['blast.mp3']);
 
+        this.load.bitmapFont('upheaval','upheaval/Upheaval.png','upheaval/Upheaval.xml')
+        this.load.bitmapFont('upheavalColor','upheaval/UpheavalColor.png','upheaval/UpheavalColor.xml')
+
         this.load.spritesheet('gun','gun.png', {
             frameWidth: 64,
             frameHeight: 53
-        })
-        this.load.spritesheet('bible','bible.png', {
-            frameWidth: 15,
-            frameHeight: 11
         })
         this.load.spritesheet('heathen','heathen.png', {
             frameWidth: 24,
