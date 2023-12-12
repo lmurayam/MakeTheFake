@@ -27,6 +27,15 @@ class Over extends Phaser.Scene{
         keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);  
         keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);  
 
+        this.gun = this.add.sprite(width/2,height*2,'gun',0).setOrigin(0.5)
+
+        this.gunTween = this.tweens.add({
+            targets: [this.gun],
+            y: {from: height*2 ,to:height-height/7},
+            paused: true,
+            duration: 800
+        });
+
         
     }
     update(){

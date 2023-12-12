@@ -60,9 +60,8 @@ class Play extends Phaser.Scene{
             loop: true,
         })
 
-        let heathen = new Heathen(this, width/2, height*11/25,'heathen',speed).setOrigin(0.5)
-        this.heathens.add(heathen)
-        //Phaser.Math.Between(bounds,levelWidth-bounds,10)
+        this.leftSpawner = new Spawner(this, -10, height*11/25,'heathen',1).setOrigin(0.5)
+        this.rightSpawner = new Spawner(this, levelWidth+10, height*11/25,'heathen',-1).setOrigin(0.5)
 
         this.tween = this.tweens.add({
             targets: [this.title],
@@ -96,8 +95,13 @@ class Play extends Phaser.Scene{
             this.tween.paused=false
         }
         if (this.gameOver){
+            if(this.score>highScore){
+                highScore=this.score
+            }
             this.gunTween.paused = false
             this.tween.paused=false
+            this.leftSpawner.gameOver=true
+            this.rightSpawner.gameOver=true
         }
     }
 }
