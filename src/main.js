@@ -1,13 +1,13 @@
 
 /*
 components:
-Camera
+Camera x
 Animation Manager
 Timer
-Tween
+Tween x
 Particle effects
-Bitmap Text Objects
-Physics
+Bitmap Text Objects x
+Physics x 
 */
 
 let config = {

@@ -5,6 +5,7 @@ class Play extends Phaser.Scene{
     create(){
         this.physics.world.drawDebug = false;
         console.log("In Play")
+        this.sky = this.add.tileSprite(0, 0, 300, 144, 'sky').setOrigin(0, 0);
         this.background = this.add.image(0, 0,'background').setOrigin(0,0)
         levelWidth = this.background.width
         levelHeight = this.background.height
@@ -29,6 +30,22 @@ class Play extends Phaser.Scene{
 
         this.previousHeathen = null
         this.newHeathen = null
+
+        this.timeElapsed = 0
+        this.time.addEvent({
+            delay:1000,
+            callback: function(){
+                if(this.gameOver == false){
+                    this.timeElapsed += 1
+                }
+                if(this.timeElapsed%4==0){
+                    this.sky.tilePositionX += 1
+                }
+            },
+            callbackScope: this,
+            loop: true,
+        })
+
     }
 
     update(){

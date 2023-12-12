@@ -17,6 +17,7 @@ class Load extends Phaser.Scene{
             loadingBar.destroy();
         });
         this.load.path = './assets/';
+        this.load.image('sky','sky.png')
         this.load.image('background','background.png')
         this.load.image('crosshair','crosshair.png')
         this.load.image('border','border.png')
@@ -41,6 +42,7 @@ class Load extends Phaser.Scene{
 
     }
     create(){
-        this.scene.start('menuScene');
+        this.scene.start('playScene')
+        //this.scene.start('menuScene');
     }
 }

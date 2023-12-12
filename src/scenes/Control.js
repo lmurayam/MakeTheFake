@@ -4,6 +4,8 @@ class Control extends Phaser.Scene{
     }
     create(){
         console.log("In Control")
+        this.sky = this.add.tileSprite (0, 0, 300, 144, 'sky').setOrigin(0.5, 0);
+        this.sky.x = this.cameras.main.width / 2
         this.background = this.add.image(0, 0,'background').setOrigin(0.5)
         this.background.x = this.cameras.main.width / 2
         this.background.y = this.cameras.main.height / 2
@@ -47,8 +49,8 @@ class Control extends Phaser.Scene{
     }
     update(){
         if (Phaser.Input.Keyboard.JustDown(keySpace)){
-            this.tween.paused=false
             this.gunTween.paused=false
+            this.tween.paused=false
         }
     }
 }

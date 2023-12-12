@@ -9,8 +9,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
         this.setDepth(2)
         //this.body.setVelocityY(-5)
         this.scene.physics.velocityFromAngle(angle,-60,this.body.velocity)
-        console.log(angle)
-        console.log(this.body.velocity)
+        //console.log(angle)
+        //console.log(this.body.velocity)
         this.angle = angle -90
         this.scene.physics.add.collider(this,this.scene.newHeathen, (bullet,heathen)=>{
             heathen.setFrame(1)
@@ -23,10 +23,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
             this.destroy()
         }
         let distance = this.y-height/2
-        if(this.y<height){
-            let scaleFactor = Phaser.Math.Clamp(Math.pow(1.4, distance/height*50), 0, 1);
-            console.log(scaleFactor)
-            this.setScale(scaleFactor)
-        }
+        let scaleFactor = Phaser.Math.Clamp(Math.pow(1.4, distance/height*50), 0, 1);
+        //console.log(scaleFactor)
+        this.setScale(scaleFactor)
     }
 }
