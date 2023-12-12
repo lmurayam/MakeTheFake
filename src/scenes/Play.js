@@ -25,20 +25,30 @@ class Play extends Phaser.Scene{
         this.border = this.add.sprite(0, 0,'border').setOrigin(0,0)
         this.border.setScrollFactor(0)
         this.border.setDepth(10)
-        
+
+        this.score = 0
         this.gameOver = false
 
         this.heathens = this.add.group()
 
+        
+
         this.timeElapsed = 0
+        this.timeLimit = 60
+        this.timeText = this.add.bitmapText(width*4/5,Math.round(height*4/5),'upheaval',this.timeLimit,16,1).setOrigin(0.5).setLetterSpacing(4)
+        this.timeText.setScrollFactor(0)
         this.time.addEvent({
             delay:1000,
             callback: function(){
                 if(this.gameOver == false){
                     this.timeElapsed += 1
+                    this.timeText.text = this.timeLimit - this.timeElapsed
+                    if(this.timeElapsed%4==0){
+                        this.sky.tilePositionX += 1
+                    }
                 }
-                if(this.timeElapsed%4==0){
-                    this.sky.tilePositionX += 1
+                if(this.timeLimit-this.timeElapsed==0){
+                    this.gameOver = true
                 }
             },
             callbackScope: this,

@@ -14,6 +14,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
         this.angle = angle -90
         this.scene.physics.add.collider(this,this.scene.heathens, (bullet,heathen)=>{
             if(heathen.isConverted==false){
+                this.scene.score += 1
                 heathen.setFrame(1)
                 heathen.isConverted = true
                 this.particle.setParticleScale(2)
@@ -42,6 +43,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
         let distance = this.y-height/2
         let scaleFactor = Phaser.Math.Clamp(Math.pow(1.4, distance/height*50), 0, 1);
         this.particle.setParticleScale(2*scaleFactor)
+        this.particle.setParticleAlpha(scaleFactor)
         this.setScale(scaleFactor)
+        this.alpha=scaleFactor
     }
 }
