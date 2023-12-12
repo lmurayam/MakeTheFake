@@ -13,7 +13,7 @@ class Control extends Phaser.Scene{
 
         this.instruction = this.add.bitmapText(Math.round(width/2),Math.round(height*2/6),'upheaval','USE ARROW KEYS\nTO AIM BLASTER\nPRESS SPACE\nTO SHOOT',14,1).setOrigin(0.5).setLetterSpacing(4)
         this.instruction.alpha = 0
-        this.spaceText = this.add.bitmapText(Math.round(width/2),Math.round(height*2/3),'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
+        this.spaceText = this.add.bitmapText(Math.round(width/2),Math.round(height*9/13),'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
 
         this.tweens.add({
             targets: this.instruction,

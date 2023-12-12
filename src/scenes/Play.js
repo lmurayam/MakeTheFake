@@ -126,10 +126,6 @@ class Play extends Phaser.Scene{
                 heathen.update()
             });
         }
-        if(keyR.isDown){
-            this.gunTween.paused = false
-            this.tween.paused=false
-        }
         if (this.gameOver){
             if(this.score>highScore){
                 highScore=this.score

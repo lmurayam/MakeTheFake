@@ -12,7 +12,7 @@ class Menu extends Phaser.Scene{
         this.bibleText = this.add.bitmapText(Math.round(width/2),Math.round(height/3),'upheavalColor','BIBLE',28).setOrigin(0.5).setLetterSpacing(2)
         this.blasterText = this.add.bitmapText(Math.round(width/2),Math.round(height/2),'upheavalColor','BLASTERS',28).setOrigin(0.5).setLetterSpacing(2)
 
-        this.add.bitmapText(Math.round(width/2),Math.round(height*2/3),'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
+        this.add.bitmapText(Math.round(width/2),Math.round(height*9/13),'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
 
         this.tween = this.tweens.add({
             targets: [this.billyText,this.bibleText,this.blasterText,this.spaceText],

@@ -45,5 +45,8 @@ class Over extends Phaser.Scene{
         if(keyM.isDown){
             this.scene.start('menuScene')
         }
+        if(keyC.isDown){
+            this.scene.start('creditScene')
+        }
     }
 }
