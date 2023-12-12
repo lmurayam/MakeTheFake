@@ -23,6 +23,7 @@ class Load extends Phaser.Scene{
         this.load.image('border','border.png')
         this.load.image('title','title.png')
         this.load.image('bible','bible.png')
+        this.load.image('redPixel','redPixel.png')
 
         this.load.audio('sfx_title', ['title.mp3']);
         this.load.audio('sfx_blast', ['blast.mp3']);
