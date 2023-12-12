@@ -3,9 +3,9 @@
 components:
 Camera x
 Animation Manager
-Timer
+Timer x 
 Tween x
-Particle effects
+Particle effects x 
 Bitmap Text Objects x
 Physics x 
 */
@@ -33,7 +33,7 @@ let game = new Phaser.Game(config)
 
 let { width, height } = game.config
 let keySpace, keyLeft, keyRight, keyR
-let speed = 1
+let speed = 20
 let bounds = Math.round(width*(1/5))+1
 let levelWidth,levelHeight
 

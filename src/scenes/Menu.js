@@ -17,7 +17,7 @@ class Menu extends Phaser.Scene{
         this.tween = this.tweens.add({
             targets: [this.billyText,this.bibleText,this.blasterText,this.spaceText],
             alpha: { from: 1, to: 0 },
-            duration: 1000,
+            duration: 500,
             completeDelay: 100,
             repeat: 0,
             paused: true,

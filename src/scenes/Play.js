@@ -28,8 +28,7 @@ class Play extends Phaser.Scene{
         
         this.gameOver = false
 
-        this.previousHeathen = null
-        this.newHeathen = null
+        this.heathens = this.add.group()
 
         this.timeElapsed = 0
         this.time.addEvent({
@@ -46,18 +45,18 @@ class Play extends Phaser.Scene{
             loop: true,
         })
 
+        let heathen = new Heathen(this, width/2, height*11/25,'heathen',speed).setOrigin(0.5)
+        this.heathens.add(heathen)
+        //Phaser.Math.Between(bounds,levelWidth-bounds,10)
     }
 
     update(){
         html_input(this)
         if (!this.gameOver){
             this.crosshair.update()
-            if (this.previousHeathen==null||this.previousHeathen.isConverted==true){
-                this.newHeathen = new Heathen(this, Phaser.Math.Between(bounds,levelWidth-bounds), height*11/25,'heathen').setOrigin(0.5)
-                this.newHeathen.setDepth(1)
-                this.previousHeathen = this.newHeathen
-            }
-            this.newHeathen.update()
+            this.heathens.getChildren().forEach(heathen => {
+                heathen.update()
+            });
         }
         if(keyR.isDown){
             this.scene.start('menuScene');

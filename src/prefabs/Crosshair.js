@@ -58,10 +58,10 @@ class Crosshair extends Phaser.Physics.Arcade.Sprite{
     update(){
         this.gunAngle()
         if(keyLeft.isDown&&this.x>bounds){
-            this.x -= speed
+            this.x -= 1
         }
         else if(keyRight.isDown&&this.x<levelWidth-bounds){
-            this.x += speed
+            this.x += 1
         }
         if(keySpace.isDown&&this.isShooting==false){
             this.isShooting=true

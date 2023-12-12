@@ -12,15 +12,17 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
         //console.log(angle)
         //console.log(this.body.velocity)
         this.angle = angle -90
-        this.scene.physics.add.collider(this,this.scene.newHeathen, (bullet,heathen)=>{
-            heathen.setFrame(1)
-            heathen.isConverted = true
-            this.particle.setParticleScale(2)
-            this.particle.explode(100,this.particle.x,this.particle.y)
-            setTimeout(() => {
-                this.particle.destroy();
-            }, 3000);
-            bullet.destroy()
+        this.scene.physics.add.collider(this,this.scene.heathens, (bullet,heathen)=>{
+            if(heathen.isConverted==false){
+                heathen.setFrame(1)
+                heathen.isConverted = true
+                this.particle.setParticleScale(2)
+                this.particle.explode(100,this.particle.x,this.particle.y)
+                setTimeout(() => {
+                    this.particle.destroy();
+                }, 3000);
+                bullet.destroy()
+            }
         })
         this.particle = this.scene.add.particles(0, 0, 'redPixel', {
             speed: 50,
