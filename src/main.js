@@ -26,16 +26,17 @@ let config = {
             }
         }
     },
-    scene: [Load, Menu, Control, Play],
+    scene: [Load, Menu, Control, Play, Over],
 }
 
 let game = new Phaser.Game(config)
 
 let { width, height } = game.config
-let keySpace, keyLeft, keyRight, keyR
+let keySpace, keyLeft, keyRight, keyR, keyM, keyC
 let speed = 20
 let bounds = Math.round(width*(1/5))+1
 let levelWidth,levelHeight
+let highScore = 0
 
 function html_input(scene){
     let debug = document.getElementById('debugToggle');

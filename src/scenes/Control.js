@@ -11,9 +11,9 @@ class Control extends Phaser.Scene{
         this.background.y = this.cameras.main.height / 2
         this.title = this.add.image(0, 0,'title').setOrigin(0,0)
 
-        this.instruction = this.add.bitmapText(width/2,height*2/6,'upheaval','USE ARROW KEYS\nTO AIM BLASTER\nPRESS SPACE\nTO SHOOT',14,1).setOrigin(0.5).setLetterSpacing(4)
+        this.instruction = this.add.bitmapText(Math.round(width/2),Math.round(height*2/6),'upheaval','USE ARROW KEYS\nTO AIM BLASTER\nPRESS SPACE\nTO SHOOT',14,1).setOrigin(0.5).setLetterSpacing(4)
         this.instruction.alpha = 0
-        this.spaceText = this.add.bitmapText(width/2,height*2/3,'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
+        this.spaceText = this.add.bitmapText(Math.round(width/2),Math.round(height*2/3),'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
 
         this.tweens.add({
             targets: this.instruction,
