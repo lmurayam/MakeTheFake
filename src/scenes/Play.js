@@ -10,7 +10,7 @@ class Play extends Phaser.Scene{
         levelWidth = this.background.width
         levelHeight = this.background.height
         this.crosshair = new Crosshair(this, levelWidth/2, height*11/25,'crosshair').setOrigin(0.5)
-        this.crosshair.setDepth(2)
+        this.crosshair.setDepth(9)
 
         this.cameras.main.setBounds(0,0,levelWidth,levelHeight)
         this.cameras.main.startFollow(this.crosshair,false)
@@ -23,13 +23,13 @@ class Play extends Phaser.Scene{
 
         this.title = this.add.image(0, 0,'title').setOrigin(0,0)
         this.title.setScrollFactor(0)
-        this.title.setDepth(9)
+        this.title.setDepth(10)
         this.title.alpha=0
 
 
         this.border = this.add.sprite(0, 0,'border').setOrigin(0,0)
         this.border.setScrollFactor(0)
-        this.border.setDepth(10)
+        this.border.setDepth(11)
 
         this.score = 0
         this.gameOver = false
@@ -80,11 +80,47 @@ class Play extends Phaser.Scene{
             paused: true,
             duration: 800
         });
+
+        this.bullet1 = this.add.image(Math.round(width*6/24),Math.round(height*4/5),'bible').setOrigin(0.5)
+        this.bullet1.setScrollFactor(0)
+        this.bullet1.setDepth(10)
+
+        this.bullet2 = this.add.image(Math.round(width*5/24),Math.round(height*4/5),'bible').setOrigin(0.5)
+        this.bullet2.setScrollFactor(0)
+        this.bullet2.setDepth(10)
+
+        this.bullet3 = this.add.image(Math.round(width*4/24),Math.round(height*4/5),'bible').setOrigin(0.5)
+        this.bullet3.setScrollFactor(0)
+        this.bullet3.setDepth(10)
+    }
+
+    ammoLeft(){
+        if(this.crosshair.bullets.getChildren().length==0){
+            this.bullet1.alpha = 1
+            this.bullet2.alpha = 1
+            this.bullet3.alpha = 1
+        }
+        else if(this.crosshair.bullets.getChildren().length==1){
+            this.bullet1.alpha = 1
+            this.bullet2.alpha = 1
+            this.bullet3.alpha = 0
+        }
+        else if(this.crosshair.bullets.getChildren().length==2){
+            this.bullet1.alpha = 1
+            this.bullet2.alpha = 0
+            this.bullet3.alpha = 0
+        }
+        else if(this.crosshair.bullets.getChildren().length==3){
+            this.bullet1.alpha = 0
+            this.bullet2.alpha = 0
+            this.bullet3.alpha = 0
+        }
     }
 
     update(){
         html_input(this)
         if (!this.gameOver){
+            this.ammoLeft()
             this.crosshair.update()
             this.heathens.getChildren().forEach(heathen => {
                 heathen.update()

@@ -6,7 +6,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
         scene.physics.world.enable(this)
         this.body.setAllowGravity(false)
         this.body.setImmovable(true)
-        this.setDepth(2)
+        this.setDepth(9)
         //this.body.setVelocityY(-5)
         this.scene.physics.velocityFromAngle(angle,-60,this.body.velocity)
         //console.log(angle)
@@ -19,21 +19,22 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
                 heathen.isConverted = true
                 this.particle.setParticleScale(2)
                 this.particle.explode(100,this.particle.x,this.particle.y)
-                setTimeout(() => {
-                    this.particle.destroy();
-                }, 3000);
-                bullet.destroy()
             }
+            this.particle.emitting = false
+            setTimeout(() => {
+                this.particle.destroy();
+            }, 3000);
+            bullet.destroy()
         })
         this.particle = this.scene.add.particles(0, 0, 'redPixel', {
             speed: 50,
             lifespan: { min: 50, max: 500, steps: 10 }
         })
-        this.particle.setDepth(1)
+        this.particle.setDepth(8)
         this.particle.startFollow(this,0,0,false)
     }
     update(){
-        if(this.y<height/3){
+        if(this.y<height*5/12){
             this.particle.emitting = false
             setTimeout(() => {
                 this.particle.destroy()
