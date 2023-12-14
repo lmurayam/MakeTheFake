@@ -4,6 +4,7 @@ class Control extends Phaser.Scene{
     }
     create(){
         console.log("In Control")
+        //covered background elements for transition
         this.sky = this.add.tileSprite (0, 0, 300, 144, 'sky').setOrigin(0.5, 0);
         this.sky.x = this.cameras.main.width / 2
         this.background = this.add.image(0, 0,'background').setOrigin(0.5)
@@ -15,6 +16,7 @@ class Control extends Phaser.Scene{
         this.instruction.alpha = 0
         this.spaceText = this.add.bitmapText(Math.round(width/2),Math.round(height*9/13),'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4)
 
+        //tween to fade in
         this.tweens.add({
             targets: this.instruction,
             alpha: { from: 0, to: 1},
@@ -25,6 +27,7 @@ class Control extends Phaser.Scene{
         keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.border = this.add.sprite(0, 0,'border').setOrigin(0,0)
 
+        //tween to fade out
         this.tween = this.tweens.add({
             targets: [this.title,this.instruction,this.spaceText],
             alpha: { from: 1, to: 0 },
@@ -42,6 +45,7 @@ class Control extends Phaser.Scene{
         
         this.gun = this.add.sprite(width/2,height*2,'gun',0).setOrigin(0.5)
 
+        //tween to show gun
         this.gunTween = this.tweens.add({
             targets: [this.gun],
             y: {from: height*2 ,to:height-height/7},

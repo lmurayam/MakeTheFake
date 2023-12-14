@@ -16,6 +16,7 @@ class Load extends Phaser.Scene{
         this.load.on('complete', () => {
             loadingBar.destroy();
         });
+        //image assets
         this.load.path = './assets/';
         this.load.image('sky','sky.png')
         this.load.image('background','background.png')
@@ -25,14 +26,17 @@ class Load extends Phaser.Scene{
         this.load.image('bible','bible.png')
         this.load.image('redPixel','redPixel.png')
 
+        //audio assets
         this.load.audio('sfx_title', ['title.mp3']);
         this.load.audio('sfx_blast', ['blast.mp3']);
         this.load.audio('sfx_hit', ['hit.mp3']);
         this.load.audio('bgm', ['music.mp3']);
 
+        //font assets
         this.load.bitmapFont('upheaval','upheaval/Upheaval.png','upheaval/Upheaval.xml')
         this.load.bitmapFont('upheavalColor','upheaval/UpheavalColor.png','upheaval/UpheavalColor.xml')
 
+        //spritesheets
         this.load.spritesheet('gun','gun.png', {
             frameWidth: 64,
             frameHeight: 53
@@ -45,6 +49,7 @@ class Load extends Phaser.Scene{
 
     }
     create(){
+        //set up bgm
         bgm = this.sound.add('bgm', { 
             mute: false,
             volume:  .2,

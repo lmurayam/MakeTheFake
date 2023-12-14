@@ -1,15 +1,15 @@
 
 /*
-All sounds were extracted from the episode, that is why the music is wonky
+All sounds were extracted from the episode for authenticity, that is why the music is wonky
 components:
 Camera x
-Animation Manager
 Timer x 
 Tween x
 Particle effects x 
 Bitmap Text Objects x
 Physics x 
-audio x
+Audio x
+Spritesheets x
 */
 
 let config = {
@@ -33,6 +33,7 @@ let config = {
 
 let game = new Phaser.Game(config)
 
+// setup global variables
 let { width, height } = game.config
 let keySpace, keyLeft, keyRight, keyR, keyM, keyC
 let speed = 20
@@ -42,6 +43,7 @@ let highScore = 0
 let bgm = null
 
 function html_input(scene){
+    //enable debug mode
     let debug = document.getElementById('debugToggle');
     debug.addEventListener('input', function(){
         //https://phaser.discourse.group/t/turn-on-off-debug-at-runtime/3681/2
@@ -55,6 +57,7 @@ function html_input(scene){
     });
 }
 function musicToggle(){
+    //toggle music on and off
     let music = document.getElementById('musicToggle');
     music.addEventListener('input', function(){
         if(this.checked){

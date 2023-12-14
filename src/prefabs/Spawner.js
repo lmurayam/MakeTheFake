@@ -1,7 +1,9 @@
 class Spawner extends Phaser.Physics.Arcade.Sprite{
     constructor(scene,x,y,texture,direction){
         super(scene,x,y,texture);
+        //add object to scene
         scene.add.existing(this);
+        //get heathen group from scene
         this.heathens = this.scene.heathens
         this.direction = direction
 
@@ -9,6 +11,7 @@ class Spawner extends Phaser.Physics.Arcade.Sprite{
         this.gameOver=false
     }
 
+    //repeated spawn a heathen after x amount of random time within a range
     randomSpawn(){
         let randomTime = Phaser.Math.Between(1500,5000)
         let randomY = Phaser.Math.Between(-2,2)*2

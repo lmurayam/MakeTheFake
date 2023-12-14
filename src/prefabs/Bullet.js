@@ -2,18 +2,22 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
     constructor(scene,x,y,texture,angle){
         super(scene,x,y,texture);
 
+        //add object to scene
         scene.add.existing(this);
         scene.physics.world.enable(this)
         this.body.setAllowGravity(false)
         this.body.setImmovable(true)
         this.setDepth(9)
-        //this.body.setVelocityY(-5)
+        
+        //set velocity based on angle
         this.scene.physics.velocityFromAngle(angle,-60,this.body.velocity)
-        //console.log(angle)
-        //console.log(this.body.velocity)
+        //rotate bullet based on angle
         this.angle = angle -90
+
+        //add collider to heathen
         this.scene.physics.add.collider(this,this.scene.heathens, (bullet,heathen)=>{
             if(heathen.isConverted==false){
+                //convert heathen
                 this.scene.score += 1
                 heathen.setFrame(1)
                 heathen.isConverted = true
@@ -35,6 +39,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
         this.particle.startFollow(this,0,0,false)
     }
     update(){
+        //delete if too far
         if(this.y<height*5/12){
             this.particle.emitting = false
             setTimeout(() => {
@@ -42,6 +47,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
             }, 3000);
             this.destroy()
         }
+
+        //as bullet goes farther away, begin to shrink it
         let distance = this.y-height/2
         let scaleFactor = Phaser.Math.Clamp(Math.pow(1.4, distance/height*50), 0, 1);
         this.particle.setParticleScale(2*scaleFactor)

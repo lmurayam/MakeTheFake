@@ -6,6 +6,7 @@ class Over extends Phaser.Scene{
         console.log("In Over")
         this.title = this.add.image(0, 0,'title').setOrigin(0,0)
 
+        //group text together
         this.textGroup = this.add.group()
 
         this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height/6),'upheaval','HighScore: '+highScore,14,1).setOrigin(0.5).setLetterSpacing(4))
@@ -17,6 +18,8 @@ class Over extends Phaser.Scene{
         this.textGroup.getChildren().forEach(text => {
             text.alpha = 0
         });
+
+        //tween for fade in
         this.tweens.add({
             targets: this.textGroup.getChildren(),
             alpha: { from: 0, to: 1},
@@ -29,6 +32,7 @@ class Over extends Phaser.Scene{
 
         this.gun = this.add.sprite(width/2,height*2,'gun',0).setOrigin(0.5)
 
+        //tween to remove gun
         this.gunTween = this.tweens.add({
             targets: [this.gun],
             y: {from: height*2 ,to:height-height/7},
@@ -40,6 +44,7 @@ class Over extends Phaser.Scene{
     }
     update(){
         musicToggle()
+        //scene transitions
         if(keyR.isDown){
             this.scene.start('playScene')
             this.sound.play('sfx_hit')
