@@ -21,6 +21,9 @@ class Menu extends Phaser.Scene{
             completeDelay: 100,
             repeat: 0,
             paused: true,
+            onStart: () => {
+                this.sound.play('sfx_hit')
+            },
             onComplete: () => {
                 this.scene.start('controlScene')
             }
@@ -29,6 +32,7 @@ class Menu extends Phaser.Scene{
         keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
     update(){
+        musicToggle()
         if (Phaser.Input.Keyboard.JustDown(keySpace)){
             this.tween.paused = false
         }

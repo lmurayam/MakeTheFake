@@ -17,6 +17,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite{
                 this.scene.score += 1
                 heathen.setFrame(1)
                 heathen.isConverted = true
+                this.scene.sound.play('sfx_hit')
                 this.particle.setParticleScale(2)
                 this.particle.explode(100,this.particle.x,this.particle.y)
             }

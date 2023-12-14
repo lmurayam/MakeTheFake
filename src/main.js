@@ -1,5 +1,6 @@
 
 /*
+All sounds were extracted from the episode, that is why the music is wonky
 components:
 Camera x
 Animation Manager
@@ -8,6 +9,7 @@ Tween x
 Particle effects x 
 Bitmap Text Objects x
 Physics x 
+audio x
 */
 
 let config = {
@@ -37,6 +39,7 @@ let speed = 20
 let bounds = Math.round(width*(1/5))+1
 let levelWidth,levelHeight
 let highScore = 0
+let bgm = null
 
 function html_input(scene){
     let debug = document.getElementById('debugToggle');
@@ -48,6 +51,17 @@ function html_input(scene){
         else{
             scene.physics.world.drawDebug = false;
             scene.physics.world.debugGraphic.clear();
+        }
+    });
+}
+function musicToggle(){
+    let music = document.getElementById('musicToggle');
+    music.addEventListener('input', function(){
+        if(this.checked){
+            bgm.pause() 
+        }
+        else{
+            bgm.play() 
         }
     });
 }

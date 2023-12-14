@@ -39,14 +39,18 @@ class Over extends Phaser.Scene{
         
     }
     update(){
+        musicToggle()
         if(keyR.isDown){
             this.scene.start('playScene')
+            this.sound.play('sfx_hit')
         }
         if(keyM.isDown){
             this.scene.start('menuScene')
+            this.sound.play('sfx_hit')
         }
         if(keyC.isDown){
             this.scene.start('creditScene')
+            this.sound.play('sfx_hit')
         }
     }
 }

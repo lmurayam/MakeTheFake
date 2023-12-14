@@ -32,6 +32,9 @@ class Control extends Phaser.Scene{
             completeDelay: 100,
             repeat: 0,
             paused: true,
+            onStart: () => {
+                this.sound.play('sfx_hit')
+            },
             onComplete: () => {
                 this.scene.start('playScene')
             }
@@ -48,6 +51,7 @@ class Control extends Phaser.Scene{
 
     }
     update(){
+        musicToggle()
         if (Phaser.Input.Keyboard.JustDown(keySpace)){
             this.gunTween.paused=false
             this.tween.paused=false

@@ -12,7 +12,7 @@ class Credit extends Phaser.Scene{
         this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height/4),'upheaval','THE SIMPSONS',14).setOrigin(0.5).setLetterSpacing(4))
         this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height/3),'upheaval',' SEASON: 11 EP: 14',14).setOrigin(0.5).setLetterSpacing(4))
         this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height*5/12),'upheaval','FONT: UPHEAVAL',14).setOrigin(0.5).setLetterSpacing(4))
-        this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height/2),'upheaval','SFX: EP OR PIXABAY',14).setOrigin(0.5).setLetterSpacing(2))
+        this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height/2),'upheaval','SFX: EXTRACTED',14).setOrigin(0.5).setLetterSpacing(2))
         this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height*7/12),'upheaval','THE REST: LUKE',14).setOrigin(0.5).setLetterSpacing(4))
         this.textGroup.add(this.add.bitmapText(Math.round(width/2),Math.round(height*9/13),'upheaval','PRESS SPACE',14).setOrigin(0.5).setLetterSpacing(4))
 
@@ -39,8 +39,10 @@ class Credit extends Phaser.Scene{
         
     }
     update(){
+        musicToggle()
         if(keySpace.isDown){
             this.scene.start('overScene')
+            this.sound.play('sfx_hit')
         }
     }
 }

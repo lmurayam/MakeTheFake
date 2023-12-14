@@ -27,6 +27,8 @@ class Load extends Phaser.Scene{
 
         this.load.audio('sfx_title', ['title.mp3']);
         this.load.audio('sfx_blast', ['blast.mp3']);
+        this.load.audio('sfx_hit', ['hit.mp3']);
+        this.load.audio('bgm', ['music.mp3']);
 
         this.load.bitmapFont('upheaval','upheaval/Upheaval.png','upheaval/Upheaval.xml')
         this.load.bitmapFont('upheavalColor','upheaval/UpheavalColor.png','upheaval/UpheavalColor.xml')
@@ -43,6 +45,13 @@ class Load extends Phaser.Scene{
 
     }
     create(){
+        bgm = this.sound.add('bgm', { 
+            mute: false,
+            volume:  .2,
+            rate: 1,
+            loop: true 
+        });
+        bgm.play()
         this.scene.start('menuScene')
         //this.scene.start('menuScene');
     }

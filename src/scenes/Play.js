@@ -32,6 +32,8 @@ class Play extends Phaser.Scene{
         this.border.setDepth(11)
 
         this.score = 0
+        this.scoreText = this.add.bitmapText(Math.round(width*4/5),Math.round(height*1/5),'upheaval',this.score,14,1).setOrigin(0.5).setLetterSpacing(4)
+        this.scoreText.setScrollFactor(0)
         this.gameOver = false
 
         this.heathens = this.add.group()
@@ -83,15 +85,15 @@ class Play extends Phaser.Scene{
 
         this.bullet1 = this.add.image(Math.round(width*6/24),Math.round(height*4/5),'bible').setOrigin(0.5)
         this.bullet1.setScrollFactor(0)
-        this.bullet1.setDepth(10)
+        this.bullet1.setDepth(9)
 
         this.bullet2 = this.add.image(Math.round(width*5/24),Math.round(height*4/5),'bible').setOrigin(0.5)
         this.bullet2.setScrollFactor(0)
-        this.bullet2.setDepth(10)
+        this.bullet2.setDepth(9)
 
         this.bullet3 = this.add.image(Math.round(width*4/24),Math.round(height*4/5),'bible').setOrigin(0.5)
         this.bullet3.setScrollFactor(0)
-        this.bullet3.setDepth(10)
+        this.bullet3.setDepth(9)
     }
 
     ammoLeft(){
@@ -118,7 +120,9 @@ class Play extends Phaser.Scene{
     }
 
     update(){
+        musicToggle()
         html_input(this)
+        this.scoreText.text = this.score
         if (!this.gameOver){
             this.ammoLeft()
             this.crosshair.update()
